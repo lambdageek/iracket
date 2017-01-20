@@ -1,6 +1,13 @@
 # IRacket
 
-IRacket is a Racket kernel for IPython/Jupyter.
+IRacket is a Racket kernel for
+[IPython](https://ipython.org/)/[Jupyter](http://jupyter.org/). IRacket enables
+interactive notebook-style programming with Racket. This package also includes
+Racket bindings for the [C3.js](http://c3js.org/) charting library.
+
+This package includes a number of sample notebooks that demonstrate IRacket and
+the [Gamble](https://github.com/rmculpepper/gamble) probabilistic programming
+language.
 
 # Installation
 
@@ -13,7 +20,7 @@ IRacket is a Racket kernel for IPython/Jupyter.
     * [`git://github.com/tgiannak/racket-zeromq.git#wait-on-fd`](https://github.com/tgiannak/racket-zeromq#wait-on-fd)
     * [`git://github.com/rmculpepper/gamble.git`](https://github.com/rmculpepper/gamble)
 * [ZeroMQ](http://zeromq.org)
-* [Jupyter](http://jupyter.org/)
+* [IPython version 3.2.1](https://pypi.python.org/pypi/ipython/3.2.1)
 
 ## Installation steps
 
@@ -52,9 +59,12 @@ IPYTHON_PROFILE=
 IPYTHON_PROFILE_STATIC=$(ipython locate profile $IPYTHON_PROFILE)/static
 cp ./static/ic3.js $(ipython locate)/nbextensions/ic3.js
 cat ./static/custom.js >> $IPYTHON_PROFILE_STATIC/custom/custom.js
-curl -L https://github.com/mbostock/d3/raw/v3.5.5/d3.min.js > $IPYTHON_PROFILE_STATIC/d3.js
-curl -L https://github.com/masayuki0812/c3/raw/0.4.10/c3.min.js > $IPYTHON_PROFILE_STATIC/c3.js
-curl -L https://github.com/masayuki0812/c3/raw/0.4.10/c3.min.css > $IPYTHON_PROFILE_STATIC/c3.css
+curl -L https://github.com/mbostock/d3/raw/v3.5.5/d3.min.js \
+    > $IPYTHON_PROFILE_STATIC/d3.js
+curl -L https://github.com/masayuki0812/c3/raw/0.4.10/c3.min.js \
+    > $IPYTHON_PROFILE_STATIC/c3.js
+curl -L https://github.com/masayuki0812/c3/raw/0.4.10/c3.min.css \
+    > $IPYTHON_PROFILE_STATIC/c3.css
 ```
 
 This script will
